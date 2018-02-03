@@ -11,3 +11,5 @@ else()
 endif()
 
 file( GLOB SRCS *.cpp *.h )
+
+add_executable( hw01 ${SRCS} )
