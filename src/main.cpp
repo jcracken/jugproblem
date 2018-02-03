@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
   std::ofstream output(argv[2], std::ofstream::out);
 
   getline(input, temp, ':');
-  aSize = temp.at(19);
+  input >> aSize;
   getline(input, temp, ':');
   input >> bSize;
   getline(input, temp, ':');
@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
   stateB = bInt;
 
   output << "Strategy A" << std::endl;
-  output << "Starting out with " << aSize << "-gallon jug and a " << bSize << "-gallon jug" << "              -- state: (" << stateA << "," << stateB << ")" << std::endl;
+  output << "Starting out with " << aSize << "-gallon jug and a " << bSize << "-gallon jug" << "               -- state: (" << stateA << "," << stateB << ")" << std::endl;
   while(i < 251 && !solved){
     nextMove = std::rand() % 6;
     switch(nextMove){
@@ -58,7 +58,7 @@ int main(int argc, char** argv) {
         if(stateA > 0 && stateB < bSize){
           stateB = stateA + stateB;
           if(stateB > bSize) stateB = bSize;
-          output << "Pour the " << aSize << "-gallon jug into the " << bSize << "-gallon jug         -- state: (" << stateA << "," << stateB << ")" << std::endl;
+          output << "Pour the " << aSize << "-gallon jug into the " << bSize << "-gallon jug                     -- state: (" << stateA << "," << stateB << ")" << std::endl;
           i++;
         }
       break;
@@ -66,7 +66,7 @@ int main(int argc, char** argv) {
         if(stateB > 0 && stateA < aSize){
           stateA = stateA + stateB;
           if(stateA > aSize) stateA = aSize;
-          output << "Pour the " << bSize << "-gallon jug into the " << aSize << "-gallon jug         -- state: (" << stateA << "," << stateB << ")" << std::endl;
+          output << "Pour the " << bSize << "-gallon jug into the " << aSize << "-gallon jug                     -- state: (" << stateA << "," << stateB << ")" << std::endl;
           i++;
         }
       break;
@@ -95,7 +95,7 @@ int main(int argc, char** argv) {
   stateA = aInt;
   stateB = bInt;
   output << std::endl << "Strategy B" << std::endl;
-  output << "Starting out with " << aSize << "-gallon jug and a " << bSize << "-gallon jug" << "              -- state: (" << stateA << "," << stateB << ")" << std::endl;
+  output << "Starting out with " << aSize << "-gallon jug and a " << bSize << "-gallon jug" << "               -- state: (" << stateA << "," << stateB << ")" << std::endl;
   //stuff
   output.close();
 }
