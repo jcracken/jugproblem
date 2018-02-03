@@ -7,7 +7,7 @@
 #include <ctime>
 
 int main(int argc, char** argv) {
-  int aSize, bSize, aGoal, bGoal, stateA, stateB, nextMove, i = 0;
+  int aSize, bSize, aGoal, bGoal, aInt, bInt, stateA, stateB, nextMove, i = 0;
   bool solved = false;
 
 
@@ -22,11 +22,13 @@ int main(int argc, char** argv) {
 
   input >> aSize;
   input >> bSize;
-  input >> stateA;
-  input >> stateB;
+  input >> aInt;
+  input >> bInt;
   input >> aGoal;
   input >> bGoal;
   input.close();
+  stateA = aInt;
+  stateB = bInt;
 
   output << "Strategy A" << std:endl;
   output << "Starting out with " << aSize << "-gallon jug and a " << bSize << "-gallon jug" << "              -- state: (" << stateA << "," << stateB << ")" << std:endl;
@@ -83,4 +85,12 @@ int main(int argc, char** argv) {
     }
     if(stateA == aGoal && stateB == bGoal) solved = true;
   }
+
+  //strategy B
+  stateA = aInt;
+  stateB = bInt;
+  output << std:endl << "Strategy B" << std:endl;
+  output << "Starting out with " << aSize << "-gallon jug and a " << bSize << "-gallon jug" << "              -- state: (" << stateA << "," << stateB << ")" << std:endl;
+  //stuff
+  output.close();
 }
