@@ -14,14 +14,14 @@ int main(int argc, char** argv) {
   bool solved = false, repeat = false, work = false;
 
 
-  if(argc < 3){
-    std::cout << "usage: hw01 input output" << std::endl;
+  if(argc < 2){
+    std::cout << "usage: hw01 input" << std::endl;
     exit(EXIT_FAILURE);
   }
 
   std::srand(std::time(nullptr));
   std::ifstream input(argv[1], std::ifstream::in);
-  std::ofstream output(argv[2], std::ofstream::out);
+  std::ofstream output("output.txt", std::ofstream::out);
 
   getline(input, temp, ':');
   input >> aSize;
