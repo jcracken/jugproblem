@@ -39,6 +39,8 @@ int main(int argc, char** argv) {
 
   output << "Strategy A" << std::endl;
   output << "Starting out with " << aSize << "-gallon jug and a " << bSize << "-gallon jug" << "               -- state: (" << stateA << "," << stateB << ")" << std::endl;
+	std::cout << "Strategy A" << std::endl;
+  std::cout << "Starting out with " << aSize << "-gallon jug and a " << bSize << "-gallon jug" << "               -- state: (" << stateA << "," << stateB << ")" << std::endl;
   while(i < 250 && !solved){
 	if((stateA == aGoal || aGoal == -1) && (stateB == bGoal || bGoal == -1)) solved = true;
 	else {
@@ -48,6 +50,7 @@ int main(int argc, char** argv) {
 			if (stateA > 0) {
 				stateA = 0;
 				output << "Empty the " << aSize << "-gallon jug" << "                                          -- state: (" << stateA << "," << stateB << ")" << std::endl;
+				std::cout << "Empty the " << aSize << "-gallon jug" << "                                          -- state: (" << stateA << "," << stateB << ")" << std::endl;
 				i++;
 			}
 			break;
@@ -55,6 +58,7 @@ int main(int argc, char** argv) {
 			if (stateB > 0) {
 				stateB = 0;
 				output << "Empty the " << bSize << "-gallon jug" << "                                          -- state: (" << stateA << "," << stateB << ")" << std::endl;
+				std::cout << "Empty the " << bSize << "-gallon jug" << "                                          -- state: (" << stateA << "," << stateB << ")" << std::endl;
 				i++;
 			}
 			break;
@@ -69,6 +73,7 @@ int main(int argc, char** argv) {
 					stateA = 0;
 				}
 				output << "Pour the " << aSize << "-gallon jug into the " << bSize << "-gallon jug                     -- state: (" << stateA << "," << stateB << ")" << std::endl;
+				std::cout << "Pour the " << aSize << "-gallon jug into the " << bSize << "-gallon jug                     -- state: (" << stateA << "," << stateB << ")" << std::endl;
 				i++;
 			}
 			break;
@@ -83,6 +88,7 @@ int main(int argc, char** argv) {
 					stateB = 0;
 				}
 				output << "Pour the " << bSize << "-gallon jug into the " << aSize << "-gallon jug                     -- state: (" << stateA << "," << stateB << ")" << std::endl;
+				std::cout << "Pour the " << bSize << "-gallon jug into the " << aSize << "-gallon jug                     -- state: (" << stateA << "," << stateB << ")" << std::endl;
 				i++;
 			}
 			break;
@@ -90,6 +96,7 @@ int main(int argc, char** argv) {
 			if (stateA < aSize) {
 				stateA = aSize;
 				output << "FIll the " << aSize << "-gallon jug                                           -- state: (" << stateA << "," << stateB << ")" << std::endl;
+				std::cout << "FIll the " << aSize << "-gallon jug                                           -- state: (" << stateA << "," << stateB << ")" << std::endl;
 				i++;
 			}
 			break;
@@ -97,6 +104,7 @@ int main(int argc, char** argv) {
 			if (stateB < bSize) {
 				stateB = bSize;
 				output << "FIll the " << bSize << "-gallon jug                                           -- state: (" << stateA << "," << stateB << ")" << std::endl;
+				std::cout << "FIll the " << bSize << "-gallon jug                                           -- state: (" << stateA << "," << stateB << ")" << std::endl;
 				i++;
 			}
 			break;
@@ -114,6 +122,8 @@ int main(int argc, char** argv) {
   solved = false;
   output << std::endl << "Strategy B" << std::endl;
   output << "Starting out with " << aSize << "-gallon jug and a " << bSize << "-gallon jug" << "               -- state: (" << stateA << "," << stateB << ")" << std::endl;
+	std::cout << std::endl << "Strategy B" << std::endl;
+  std::cout << "Starting out with " << aSize << "-gallon jug and a " << bSize << "-gallon jug" << "               -- state: (" << stateA << "," << stateB << ")" << std::endl;
   while(i < 250 && !solved){
 	if ((stateA == aGoal || aGoal == -1) && (stateB == bGoal || bGoal == -1)) solved = true;
 	else {
@@ -205,21 +215,27 @@ int main(int argc, char** argv) {
     switch(actions.at(j)){
       case 0: //dump A
         output << "Empty the " << aSize << "-gallon jug" << "                                          -- state: (" << stateA << "," << stateB << ")" << std::endl;
+				std::cout << "Empty the " << aSize << "-gallon jug" << "                                          -- state: (" << stateA << "," << stateB << ")" << std::endl;
       break;
       case 1: //dump B
         output << "Empty the " << bSize << "-gallon jug" << "                                          -- state: (" << stateA << "," << stateB << ")" << std::endl;
+				std::cout << "Empty the " << bSize << "-gallon jug" << "                                          -- state: (" << stateA << "," << stateB << ")" << std::endl;
       break;
       case 2: //pour A into B
         output << "Pour the " << aSize << "-gallon jug into the " << bSize << "-gallon jug                     -- state: (" << stateA << "," << stateB << ")" << std::endl;
+				std::cout << "Pour the " << aSize << "-gallon jug into the " << bSize << "-gallon jug                     -- state: (" << stateA << "," << stateB << ")" << std::endl;
       break;
       case 3: //pour B into A
         output << "Pour the " << bSize << "-gallon jug into the " << aSize << "-gallon jug                     -- state: (" << stateA << "," << stateB << ")" << std::endl;
+				std:cout << "Pour the " << bSize << "-gallon jug into the " << aSize << "-gallon jug                     -- state: (" << stateA << "," << stateB << ")" << std::endl;
       break;
       case 4: //fill A
         output << "FIll the " << aSize << "-gallon jug                                           -- state: (" << stateA << "," << stateB << ")" << std::endl;
+				std::cout << "FIll the " << aSize << "-gallon jug                                           -- state: (" << stateA << "," << stateB << ")" << std::endl;
       break;
       case 5: //fill B
         output << "FIll the " << bSize << "-gallon jug                                           -- state: (" << stateA << "," << stateB << ")" << std::endl;
+				std::cout << "FIll the " << bSize << "-gallon jug                                           -- state: (" << stateA << "," << stateB << ")" << std::endl;
       break;
       default:
         //this shouldn't happen
