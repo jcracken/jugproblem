@@ -57,7 +57,10 @@ int main(int argc, char** argv) {
       case 2: //pour A into B
         if(stateA > 0 && stateB < bSize){
           stateB = stateA + stateB;
-          if(stateB > bSize) stateB = bSize;
+          if(stateB > bSize){
+            stateA = stateB - bSize;
+            stateB = bSize;
+          }
           output << "Pour the " << aSize << "-gallon jug into the " << bSize << "-gallon jug                     -- state: (" << stateA << "," << stateB << ")" << std::endl;
           i++;
         }
@@ -65,7 +68,10 @@ int main(int argc, char** argv) {
       case 3: //pour B into A
         if(stateB > 0 && stateA < aSize){
           stateA = stateA + stateB;
-          if(stateA > aSize) stateA = aSize;
+          if(stateA > aSize){
+            stateB = stateA - aSize;
+            stateA = aSize;
+          }
           output << "Pour the " << bSize << "-gallon jug into the " << aSize << "-gallon jug                     -- state: (" << stateA << "," << stateB << ")" << std::endl;
           i++;
         }
@@ -96,6 +102,7 @@ int main(int argc, char** argv) {
   stateB = bInt;
   output << std::endl << "Strategy B" << std::endl;
   output << "Starting out with " << aSize << "-gallon jug and a " << bSize << "-gallon jug" << "               -- state: (" << stateA << "," << stateB << ")" << std::endl;
+
   //stuff
   output.close();
 }
