@@ -189,6 +189,10 @@ int main(int argc, char** argv) {
 					repeat = true;
 					loc = j;
 				}
+				else if (nextStateA == 0 && nextStateB == 0) {
+					repeat = true;
+					loc = 0;
+				}
 			}
 			if (repeat) {
 				backtrack.erase(backtrack.begin() + loc + 1, backtrack.begin() + backtrack.size());
@@ -209,7 +213,7 @@ int main(int argc, char** argv) {
 		}
 	}
   }
-  for(j = 0; j < backtrack.size(); j++){
+  for(j = 0; (unsigned int)j < backtrack.size(); j++){
     stateA = backtrack[j][0];
     stateB = backtrack[j][1];
     switch(actions.at(j)){
